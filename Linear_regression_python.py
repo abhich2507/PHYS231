@@ -12,5 +12,12 @@ sum_V2 = np.sum(V**2)
 m = (n*sum_VI - sum_V*sum_I)/(n*sum_V2 - sum_V**2)
 c = (sum_I - m*sum_V)/n
 
-print(m)
-print(c)
+print(f"Slope {np.round(m,3)} ohm" )
+
+import matplotlib.pyplot as plt
+
+plt.scatter(V,I,color='blue')
+plt.plot(V,m*V+c,color='red')
+plt.xlabel('Voltage (V)')
+plt.ylabel('Current (A)')
+plt.savefig("plot_linear_regression.pdf")
